@@ -51,10 +51,9 @@ public class EmployeeController {
     }
 
     // build delete employee REST API
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable long id){
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found id: " + id));
-
         employeeRepository.delete(employee);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
