@@ -3,8 +3,10 @@ package com.testjava.springbootbackend.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Physician")
 public class Physician {
     @Id
     @Column(name = "EmployeeID", nullable = false)
@@ -51,4 +53,13 @@ public class Physician {
         this.ssn = ssn;
     }
 
+    public Physician() {
+    }
+
+    public Physician(Integer id, String name, String position, Integer ssn) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.ssn = ssn;
+    }
 }
